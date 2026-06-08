@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>animeDOT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dark-theme">
+
+  <div id="security-screen" class="security-overlay">
+    <div class="lock-box">
+      <i class="fas fa-shield-alt security-icon"></i>
+      <h2>Hidden Village Security</h2>
+      <p>Enter access PIN code: <strong>1234</strong></p>
+      <input type="password" id="pin-input" placeholder="XXXX" maxlength="4">
+      <button onclick="checkSecurity()">Verify</button>
+      <p id="security-error" class="error-msg"></p>
+    </div>
+  </div>
+
+  <div class="background-container">
+    <div class="naruto-bg"></div>
+    <div class="rasengan-glow" id="global-rasengan"></div>
+  </div>
+
+  <div class="main-container" id="main-content" style="display: none;">
+
+    <div id="home-page" class="full-page id-hide">
+      <button class="back-btn" onclick="closePage('home-page')"><i class="fas fa-arrow-left"></i> Back to Menu</button>
+      <div class="search-wrapper">
+        <h3>Search Your Favorite Anime</h3>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Type anime name...">
+          <button onclick="searchAnime()"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="search-result" class="search-result-container"></div>
+      </div>
+    </div>
+
+    <div id="char-page" class="full-page id-hide">
+      <button class="back-btn" onclick="closePage('char-page')"><i class="fas fa-arrow-left"></i> Back to Menu</button>
+      <div class="search-wrapper">
+        <h3>Search Anime Characters</h3>
+        <div class="search-box">
+          <input type="text" id="char-search-input" placeholder="Type character name (e.g., Naruto, Kakashi)...">
+          <button onclick="searchCharacter()"><i class="fas fa-search"></i></button>
+        </div>
+        <div id="char-search-result" class="search-result-container"></div>
+      </div>
+    </div>
+
+    <div class="circle-menu-wrapper" id="circle-menu-container">
+      <div class="center-circle" id="menu-trigger" onclick="toggleMenu()">
+        <div class="rasengan-core"></div>
+        <div class="rasengan-inner-glow"></div>
+      </div>
+
+      <ul class="menu-items" id="menu-items">
+        <li style="--i:0;" onclick="openPage('home-page')"><i class="fas fa-home"></i><span class="tooltip">Home</span></li>
+        <li style="--i:1;" onclick="showSection('about')"><i class="fas fa-info-circle"></i><span class="tooltip">About</span></li>
+        <li style="--i:2;" onclick="showSection('contact')"><i class="fas fa-envelope"></i><span class="tooltip">Contact</span></li>
+        <li style="--i:3;" onclick="showSection('signup')"><i class="fas fa-user-plus"></i><span class="tooltip">Sign Up</span></li>
+        <li style="--i:4;" id="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i><span class="tooltip">Theme</span></li>
+        <li style="--i:5;" id="more-toggle" onclick="toggleSubMenu()"><i class="fas fa-plus-circle"></i><span class="tooltip">More</span></li>
+        
+        <li id="sub-char" class="sub-menu-item" onclick="openPage('char-page')"><i class="fas fa-user-ninja"></i><span class="tooltip">Characters</span></li>
+      </ul>
+    </div>
+
+    <div class="content-sections">
+      <section id="contact-section" class="anime-card hide">
+        <div class="css-pain">
+          <div class="pain-head">
+            <div class="pain-hair"></div>
+            <div class="pain-rinnegan left"></div>
+            <div class="pain-rinnegan right"></div>
+            <div class="pain-headband"></div>
+            <div class="pain-piercing p1"></div>
+            <div class="pain-piercing p2"></div>
+          </div>
+          <div class="pain-body">
+            <div class="pain-arm left"></div>
+            <div class="pain-arm right"></div>
+          </div>
+        </div>
+        <button class="close-btn" onclick="closeSection('contact-section')">×</button>
+        <h3>Contact the Hokage</h3>
+        <input type="text" id="ninja-name" placeholder="Your Ninja Name">
+        <textarea id="ninja-message" placeholder="Your secret message via messenger bird..."></textarea>
+        <button class="submit-btn" onclick="saveHokageMessage()">Send Scroll</button>
+        <div id="saved-msg-status"></div>
+      </section>
+
+      <section id="signup-section" class="anime-card hide">
+        <div class="css-sakura" id="sakura-avatar">
+          <div class="sakura-head">
+            <div class="sakura-hair-back"></div>
+            <div class="sakura-hair-front"></div>
+            <div class="sakura-eye left"></div>
+            <div class="sakura-eye right"></div>
+            <div class="sakura-mouth" id="sakura-mouth-element"></div>
+            <div class="sakura-headband"></div>
+          </div>
+          <div class="sakura-body">
+            <div class="sakura-arm left"></div>
+            <div class="sakura-arm right"></div>
+          </div>
+        </div>
+        <button class="close-btn" onclick="closeSection('signup-section')">×</button>
+        <h3>Join the Ninja Academy</h3>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email Address">
+        <input type="password" placeholder="Password">
+        <button class="submit-btn" onclick="triggerSakuraJoy()">Register</button>
+      </section>
+
+      <section id="about-section" class="anime-card hide">
+        <button class="close-btn" onclick="closeSection('about-section')">×</button>
+        <h3>About animeDOT</h3>
+        <p>Welcome to animeDOT! An ultimate interactive web space dedicated to anime lovers. Explore rare information, database, dates, and stunning visuals and animedot includes more than 20000 anime and soon we put manga.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
