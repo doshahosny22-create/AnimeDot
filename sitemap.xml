@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
-  <url>
-    <loc>https://doshahosny22-create.github.io/AnimeDot/</loc>
-    <priority>1.0</priority>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://sitemaps.org">
+  <sitemap>
+  <loc>https://doshahosny22-create.github.io/AnimeDot/sitemap-anime.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://doshahosny22-create.github.io/AnimeDot/sitemap-characters1.xml</loc>
+  </sitemap>
+  <sitemap>
+  <loc>https://doshahosny22-create.github.io/AnimeDot/sitemap-characters2.xml</loc>
+     </sitemap>
+  <sitemap>
+    <loc>https://doshahosny22-create.github.io/AnimeDot/sitemap-characters3.xml</loc>
+   </sitemap>
+  <sitemap>
+  <loc>https://doshahosny22-create.github.io/AnimeDot/sitemap-characters4.xml</loc>
+    </sitemap> 
+</sitemapindex>
+
